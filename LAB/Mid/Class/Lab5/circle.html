@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+
+        <script> 
+            function draw(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                var a = canvas.getContext("2d");
+
+                
+                function setpixel(x,y){
+                    a.fillStyle="red";
+                    a.fillRect(x,y,2,2);
+                }
+
+                function line(x1,y1){
+                var x=0;
+                var y=10;
+                var d=3-2*y;
+                while(x<=y){
+                    setpixel(x+x1,y+y1);
+                    setpixel(y+x1,x+y1);
+                    setpixel(-y+x1,x+y1);
+                    setpixel(-x+x1,y+y1);
+                    setpixel(-x+x1,-y+y1);
+                    setpixel(-y+x1,-x+y1);
+                    setpixel(y+x1,-x+y1);
+                    setpixel(x+x1,-y+y1);
+                    if(d<0){
+                        d=d+4*x+6;
+                    }
+                    else{
+                        d=d+4*(x-y)+10;
+                        y--;
+                    }
+                    x++;
+
+                }
+            }
+                line(300,300);
+                
+        }
+     }
+        </script>
+
+    </head>
+    <body onload="draw()">  
+            <canvas id="canvas" width="800" height="800"></canvas>
+    </body>
+</html>

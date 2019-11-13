@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <meta http-equiv="X-UA-Compatible" content = "ie=edge">
+        <title>Bresenham's line algorithm</title>
+
+        <script> 
+            function draw(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                var a = canvas.getContext("2d");
+
+                var imgData=a.getImageData(0,0,canvas.width,canvas.height);
+                 var pixel=imgData.data;
+
+                function setPixel(x,y){
+                    var x=(x+y*canvas.width)*4;
+                    pixel[x]=255;
+                    pixel[x+1]=0;
+                    pixel[x+2]=255;
+                    pixel[x+3]=255;
+                }
+
+                function line(x1, y1, x2, y2){
+                    var x,y ;
+                    var dx = Math.abs(x2-x1);
+                    var dy = Math.abs(y2-y1);
+                    var ds =2*dy;
+                    var dt = 2*(dy-dx);
+                    var d = 2*dy-dx;
+
+                    if(x1>x2){
+                        x=x2;
+                        y=y2;
+                    }
+                    else{
+                        x=x1;
+                        y=y1;
+                    }
+                    setPixel(x,y);
+                    while(x<=x2){
+                        x++;
+                        if(d<0){
+                            d+=ds;
+                        }
+                        else{
+                            y++;
+                            d+=dt;
+                        }
+                     setPixel(x,y);
+                    }
+                }
+
+                line(155,305,290,135);
+                a.putImageData(imgData,0,0);
+                
+            }
+        }
+        </script>
+
+    </head>
+    <body onload="draw()">  
+            <canvas id="canvas" width="800" height="800"></canvas>
+    </body>
+</html>

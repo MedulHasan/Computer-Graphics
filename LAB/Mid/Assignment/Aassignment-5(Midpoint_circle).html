@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Midpoint Circle Algorithm</title>
+
+        <script> 
+            function draw(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                var a = canvas.getContext("2d");
+
+                
+                function setpixel1(x,y){
+                    a.fillStyle="#ff4000";
+                    a.fillRect(x,y,4,4);
+                }
+                function setpixel2(x,y){
+                    a.fillStyle="#0000ff";
+                    a.fillRect(x,y,4,4);
+                }
+                function setpixel3(x,y){
+                    a.fillStyle="#ff00ff";
+                    a.fillRect(x,y,4,4);
+                }
+                function setpixel4(x,y){
+                    a.fillStyle="#00ff00";
+                    a.fillRect(x,y,4,4);
+                }
+                function setpixel5(x,y){
+                    a.fillStyle="#00ffff";
+                    a.fillRect(x,y,4,4);
+                }
+                function setpixel6(x,y){
+                    a.fillStyle="#ffff00";
+                    a.fillRect(x,y,4,4);
+                }
+                function setpixel7(x,y){
+                    a.fillStyle="#820000";
+                    a.fillRect(x,y,4,4);
+                }
+                function setpixel8(x,y){
+                    a.fillStyle="#ff00bf";
+                    a.fillRect(x,y,4,4);
+                }
+
+                for(var i=200;i>0;i=i-30){
+                function line(x1,y1){
+                    var x=0;
+                    var y=i;
+                    var p=1-y;
+                    while(x<=y){
+                        setpixel1(x+x1,y+y1);
+                        setpixel2(y+x1,x+y1);
+                        setpixel3(-y+x1,x+y1);
+                        setpixel4(-x+x1,y+y1);
+                        setpixel5(-x+x1,-y+y1);
+                        setpixel6(-y+x1,-x+y1);
+                        setpixel7(y+x1,-x+y1);
+                        setpixel8(x+x1,-y+y1);
+                        if(p<0){
+                            p=p+2*x+3;
+                        } 
+                        else{
+                            p=p+2*(x-y)+5;
+                            y--;
+                        }
+                        x++;
+                    
+                    }
+                }
+                line(700,350);
+                }
+                
+                
+            }
+        }
+        </script>
+
+    </head>
+    <body onload="draw()">  
+            <canvas id="canvas" width="1000" height="800"></canvas>
+    </body>
+</html>

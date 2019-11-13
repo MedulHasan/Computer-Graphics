@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <script> 
+            function draw(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+                ctx.save();
+                ctx.fillRect(0, 0, 100, 100);
+                ctx.save();
+
+                ctx.translate(110,110);
+                ctx.fillStyle = "blue";
+                ctx.fillRect(0, 0, 100, 100);
+                ctx.save();
+
+                ctx.restore();
+                ctx.fillStyle = "red";
+                ctx.fillRect(10, 10, 80, 80);
+
+                ctx.restore();
+                ctx.fillStyle = "red";
+                ctx.fillRect(10, 10, 80, 80);  
+            }
+        }
+        </script>
+
+    </head>
+    <body onload="draw()">  
+            <canvas id="canvas" width="800" height="800"></canvas>
+    </body>
+</html>

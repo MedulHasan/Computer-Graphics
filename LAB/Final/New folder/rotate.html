@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <script> 
+            function draw(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+
+                function rtr(){
+                    ctx.fillStyle="black";
+                    ctx.fillRect(0, 0, 100, 100);
+                    ctx.save();
+
+                    ctx.fillStyle = "blue";
+                    ctx.fillRect(10, 10, 80, 80);
+                    ctx.save();
+
+                    ctx.restore();
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(20, 20, 60, 60);
+
+                    ctx.restore();
+                    ctx.fillStyle = "green";
+                    ctx.fillRect(30, 30, 40, 40);  
+                }
+                rtr();
+
+                ctx.translate(110,00);
+                rtr();
+
+                ctx.translate(-45,110);
+                ctx.rotate(20*Math.PI/180);
+                rtr();
+
+
+            }
+        }
+        </script>
+
+    </head>
+    <body onload="draw()">  
+            <canvas id="canvas" width="800" height="800"></canvas>
+    </body>
+</html>

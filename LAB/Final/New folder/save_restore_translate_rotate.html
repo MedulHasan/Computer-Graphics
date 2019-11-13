@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <script> 
+            function draw(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+                
+                function tnt(){
+                    
+                    ctx.fillRect(0, 0, 150, 150);
+                    ctx.save();
+                    
+                    ctx.fillStyle = '#09F';
+                    ctx.fillRect(15, 15, 120, 120);
+                    ctx.save();
+
+                    ctx.fillStyle = '#FFF';
+                    ctx.globalAlpha = 0.5; 
+                    ctx.fillRect(30, 30, 90, 90);
+
+                    ctx.restore();
+                    ctx.fillRect(45, 45, 60, 60);
+
+                    ctx.restore();
+                    ctx.fillRect(60, 60, 30, 30);
+                }
+                tnt();
+
+                ctx.translate(160,0);
+                tnt();
+
+                ctx.translate(100,200);
+                ctx.rotate(20*Math.PI/180);
+                tnt();
+                 
+            }
+        }
+        </script>
+
+    </head>
+    <body onload="draw()">  
+            <canvas id="canvas" width="800" height="800"></canvas>
+    </body>
+</html>

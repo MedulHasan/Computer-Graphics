@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Assignment-2</title>
+        <script>
+            function fun(){
+                var can = document.getElementById('ass2');
+                if(can.getContext){
+                    var x = can.getContext('2d');
+
+                    x.beginPath();
+                    x.moveTo(610, 100);//1
+                    x.lineTo(670, 225);//2
+                    x.lineTo(815, 245);//3
+                    x.lineTo(715, 330);//4
+                    x.lineTo(740, 475);//5
+                    x.lineTo(610, 410);//6
+                    x.lineTo(480, 470);//7
+                    x.lineTo(505, 330);//8
+                    x.lineTo(405, 245);//9
+                    x.lineTo(550, 220);//10
+                    x.closePath();
+                    x.fill();
+
+                    x.beginPath();
+                    x.moveTo(610,310);//1
+                    x.lineTo(560, 235);//2
+                    x.lineTo(610, 120);//3
+                    x.closePath();
+                    x.fillStyle = 'white';
+                    x.fill();
+
+                    x.beginPath();
+                    x.moveTo(610,310);//1
+                    x.lineTo(518, 328);//2
+                    x.lineTo(422, 248);//3
+                    x.closePath();
+                    x.fillStyle = 'white';
+                    x.fill();
+
+                    x.beginPath();
+                    x.moveTo(610,310);//1
+                    x.lineTo(610, 400);//2
+                    x.lineTo(490, 455);//3
+                    x.closePath();
+                    x.fillStyle = 'white';
+                    x.fill();
+
+                    x.beginPath();
+                    x.moveTo(610,310);//1
+                    x.lineTo(705, 330);//2
+                    x.lineTo(730, 465);//3
+                    x.closePath();
+                    x.fillStyle = 'white';
+                    x.fill();
+
+                    x.beginPath();
+                    x.moveTo(610,310);//1
+                    x.lineTo(660, 235);//2
+                    x.lineTo(800, 250);//3
+                    x.closePath();
+                    x.fillStyle = 'white';
+                    x.fill();
+
+                }
+            }
+        </script>
+    </head>
+    <body onload="fun();">
+        <canvas id="ass2" height="700" width="1000"></canvas>
+    </body>
+</html>

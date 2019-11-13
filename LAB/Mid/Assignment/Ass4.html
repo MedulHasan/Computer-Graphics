@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <meta http-equiv="X-UA-Compatible" content = "ie=edge">
+        <title>Bresenham's line algorithm</title>
+
+        <script> 
+            function draw(){
+                var canvas = document.getElementById("canvas");
+                if (canvas.getContext) {
+                var a = canvas.getContext("2d");
+
+                function setPixel(x,y){
+                    a.fillStyle = 'black';
+                    a.fillRect(x,y,3,3);
+                }
+
+                function draw_line(x1, y1, x2, y2){
+                    var x,y ;
+                    var dx = Math.abs(x2-x1);
+                    var dy = Math.abs(y2-y1);
+                    var ds =2*dy;
+                    var dt = 2*(dy-dx);
+                    var d = 2*dy-dx;
+
+                    if(x1>x2){
+                        x=x2;
+                        y=y2;
+                    }
+                    else{
+                        x=x1;
+                        y=y1;
+                    }
+                    setPixel(x,y);
+                    while(x<=x2){
+                        x++;
+                        if(d<0){
+                            d+=ds;
+                        }
+                        else{
+                            y++;
+                            d+=dt;
+                        }
+                     setPixel(x,y);
+                    }
+                }
+
+                draw_line(155,305,290,135);
+                
+            }
+        }
+        </script>
+
+    </head>
+    <body onload="draw()">  
+            <canvas id="canvas" width="800" height="800"></canvas>
+    </body>
+</html>
